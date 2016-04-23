@@ -1,26 +1,22 @@
 'use strict';
 
-// Declare app level module which depends on filters, and services
+var myApp = angular.module('myApp', [
+  'ngRoute', 
+  'myApp.controllers', 
+  'myApp.services', 
+  'myApp.directives', 
+  'myApp.filters'
+]);
+  
+myApp.config(['$routeProvider', 
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: 'partials/home.jade',
+        controller: 'IndexCtrl'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+  }]);
 
-angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
-]).
-config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/home', {
-      templateUrl: 'partials/home',
-      controller: 'SinglePoem'
-    }).
-    when('/cloud', {
-      templateUrl: 'partials/cloud',
-      controller: 'Cloud'
-    }).
-    otherwise({
-      redirectTo: '/home'
-    });
-
-  $locationProvider.html5Mode(true);
-});

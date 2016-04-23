@@ -8,10 +8,6 @@ request(url, function (error, response, body) {
 			title = $('#poem-top > h1').text(),
 			author = $('#poemwrapper > span.author > a').text(),
 			bodyHtml = $('#poem > div.poem').html();
-		  
-		console.log(title);
-		console.log(author);  
-		console.log(bodyHtml);
 	} else {
 		console.log("We’ve encountered an error: " + error);
 	}
